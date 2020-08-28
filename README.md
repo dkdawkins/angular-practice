@@ -32,6 +32,9 @@
 - Syntax: [class.some-css-class]="some-condition"
 - Applies a CSS class conditionally to the HTML element
 
+# Property Binding
+- Syntax: <app-some-component [property]="inputProperty"></app-some-component>
+- One-way data binding from the inputProperty of this component to the property of some-component
 
 # style.css
 - Used for application-wide styles
@@ -45,6 +48,7 @@
   * styleUrls: location of component css
 - ngOnInit: Lifecycle Hook; used to perform complex initializations after constructor
 - <app-cname></app-cname> can be added to the app component to display a particular component
+- Generally, different features should be housed in different sub-components
 
 # Interfaces:
 - export interface IName { <property>: <datatype>; ...}
@@ -68,3 +72,8 @@
 # Structural Directives
 - *ngFor="let item of items": displays affected nodes for each item in a given list
 - *ngIf="item": displays affected nodes if item is not null
+
+# Input decorator
+- Syntax: @Input() property: IName;
+- Must import Input from @angular/core in the component.ts that uses this
+- Recieves property data through Property Binding
