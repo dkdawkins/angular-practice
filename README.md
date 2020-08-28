@@ -23,6 +23,16 @@
 - FormsModule must be imported in the AppModule for this to work
 - Data flows in both directions
 
+# Event Binding
+- Syntax: (event)="onEvent(item)"
+- Angular listens for event (such as click) and executes the named expression (in this case, onEvent(item)) when that event happens
+- Expression defined in the component's .ts file
+
+# Class Binding
+- Syntax: [class.some-css-class]="some-condition"
+- Applies a CSS class conditionally to the HTML element
+
+
 # style.css
 - Used for application-wide styles
 
@@ -39,7 +49,8 @@
 # Interfaces:
 - export interface IName { <property>: <datatype>; ...}
 - Must be imported into component.ts to be used
-- oname: IName = { <property>: <value>, ...};
+- oname: IName = { <property>: <value>, ...}; - Init with default values
+- oname: IName; - Init without defualt values
 
 # Pipes:
 - Activated with the pipe | operator in the component template
@@ -48,3 +59,12 @@
 # Modules:
 - Possess an @NgModule decorator for critical metadata
 - Must opt-in to any optional modules such as FormsModule via the AppModule class
+
+# Displaying lists
+- Iterate through a list in html using *ngFor
+- Syntax: <li *ngFor="let item of items">{{item}}</li>
+- Where items is an array of item, declared in component.ts
+
+# Structural Directives
+- *ngFor="let item of items": displays affected nodes for each item in a given list
+- *ngIf="item": displays affected nodes if item is not null
