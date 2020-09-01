@@ -19,19 +19,18 @@ export class HeroService {
   getHeroes(): Observable<Hero[]> {
     return this.http.get<Hero[]>(this.heroesUrl)
       .pipe(
+        tap(_ => this.log('fetched heroes')),
         catchError(this.handleError<Hero[]>('getHeroes', []))
       );
   }
 
-  // Returns a single Hero observable
+  /** GET hero by id. Will 404 if id not found */
   getHero(id: number): Observable<Hero> {
-
-    // TODO: send the message _after_ fetching the heroes
-    
-    this.messageService.add(`HeroService: fetched hero id=${id}`);
-
-    // Returns an Observable<Hero> that emits a single value (the mathcing hero)
-    return of(HEROES.find(hero => hero.id === id));
+    const url = `${this.heroesUrl}/${id}`;
+    return this.http.get<Hero>(url).pipe(
+      tap(_ => this.log(`fetched hero id=${id}`)),
+      catchError(this.handleError<Hero>(`getHero id=${id}`))
+    );
   }
 
   /** Log a HeroService message with the MessageService */
