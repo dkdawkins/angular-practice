@@ -5,6 +5,7 @@
 - ng new my-app : Create a new Angular Application from a template
 - /my-app$ ng serve --open : Run the Angular application and automatically open a browser for it
 - /my-app$ ng generate component <cname> : Generate a new component under src/app; import & declare the new component in app.module.ts
+- /my-app$ ng generate service <sname> : Generate a new service class under src/app
 
 # Debugging
 - In a browser, you can hit F12 or FN+F12 to view the dev tools
@@ -77,3 +78,14 @@
 - Syntax: @Input() property: IName;
 - Must import Input from @angular/core in the component.ts that uses this
 - Recieves property data through Property Binding
+
+# Services
+- Useful to share info between classes that don't know each other
+- Generally injected into the constructor of the component that uses it
+- Generated services have the @Injectable decorator, marking them as a class that participates in dependency injection
+- Services must have a registered provider before participating in DI. The generate command registers a provider with the root injector by default, allowing the service to be injected into any class that asks for it
+
+# Observables
+- 'Observable' and 'of()' are imported from rxjs
+- Emits the response from a remote server asynchronously
+- .subscribe() waits for the Observable to be emitted and passes the emitted response to the callback (similar to await in C#)

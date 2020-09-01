@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
-import { HEROES } from '../mock-heroes';
+import { HeroService } from '../hero.service'
 
 @Component({
   selector: 'app-heroes',
@@ -9,13 +9,21 @@ import { HEROES } from '../mock-heroes';
 })
 export class HeroesComponent implements OnInit {
 
-  heroes = HEROES;
+  heroes: Hero[];
   selectedHero: Hero;
 
-  constructor() { }
+  // Sets heroService to a singleton instance of HeroService
+  constructor(private heroService: HeroService) { }
 
+  // Best practice to call init functions here, rather than the constructor
   ngOnInit(): void {
+    this.getHeroes();
+  }
 
+  // Retrieves heroes from the HeroService (consumption of service)
+  getHeroes(): void {
+    this.heroService.getHeroes()
+      .subscribe(heroes => this.heroes = heroes);
   }
 
   // Assigns clicked hero from template to selectedHero
