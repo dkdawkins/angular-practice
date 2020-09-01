@@ -9,6 +9,7 @@
 - /my-app$ ng generate module <mname> : Generate a new module class under src/app
   - Adding '--flat' places the generated module into src/app instead of a separate folder
   - Adding '--module=app' registers the generated module in the imports of AppModule
+- /my-app$ npm install angular-in-memory-web-api --save : In-Memory Web API Package; mainly used to simulate communication with a remote data server by intercepting HTTP Requests
 
 # Misc. JS/TS Notes
 - JS '+' operator converts a string to a number; useful for converting route parameters from strings to numbers
@@ -108,3 +109,11 @@
 - Adding a colon (:) to a path represents a placeholder for a property
 - Inject ActivatedRoute into a component that will be navigated to if you want to extract details from the route to said component (e.g. getting the ID of the hero to be displayed in the HeroDetailComponent)
 - Inject Location into a component that will be navigated to if you want to go back to the previous component that was navigated from (e.g. going back to the dashboard or hero list after going to the HeroDetailComponent)
+
+# HttpClient
+- Angular's mechanism for communicating with a remote server over HTTP
+- To enable, import HttpClientModule into the root module
+
+# InMemoryWebAPI
+- Used to simulate communication with a data server by intercepting HTTP requests
+- Must install package (see commands), generate an InMemoryData.Service, and import InMemoryDataService and WebAPI into the root module
