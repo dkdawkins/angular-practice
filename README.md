@@ -67,6 +67,7 @@
 # Pipes:
 - Activated with the pipe | operator in the component template
 - Useful for formatting display data
+- Can be used with Observables (see below) with '| async'
 
 # Modules:
 - Possess an @NgModule decorator for critical metadata
@@ -96,6 +97,7 @@
 # Observables
 - 'Observable' and 'of()' are imported from rxjs
 - Emits the response from a remote server asynchronously
+- Indicated in HTML with '$'
 - .subscribe() waits for the Observable to be emitted and passes the emitted response to the callback (similar to await in C#)
 - NOTE: As a rule of thumb, always use .subscribe with Observables; neglecting to call .subscribe will prevent the service from sending a request to the server
 
