@@ -113,6 +113,8 @@
 # HttpClient
 - Angular's mechanism for communicating with a remote server over HTTP
 - To enable, import HttpClientModule into the root module
+- HttpClient.get() returns JSON by default. To return an observable, use HttpClient.get<Observable>()
+- Http requests/responses should be handled in a service
 
 # InMemoryWebAPI
 - Used to simulate communication with a data server by intercepting HTTP requests
