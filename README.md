@@ -6,6 +6,9 @@
 - /my-app$ ng serve --open : Run the Angular application and automatically open a browser for it
 - /my-app$ ng generate component <cname> : Generate a new component under src/app; import & declare the new component in app.module.ts
 - /my-app$ ng generate service <sname> : Generate a new service class under src/app
+- /my-app$ ng generate module <mname> : Generate a new module class under src/app
+  - Adding '--flat' places the generated module into src/app instead of a separate folder
+  - Adding '--module=app' registers the generated module in the imports of AppModule
 
 # Debugging
 - In a browser, you can hit F12 or FN+F12 to view the dev tools
@@ -90,3 +93,10 @@
 - 'Observable' and 'of()' are imported from rxjs
 - Emits the response from a remote server asynchronously
 - .subscribe() waits for the Observable to be emitted and passes the emitted response to the callback (similar to await in C#)
+
+# Navigation
+- Generally handled with a top-level Routing module
+- Must import RouterModule and Routes from @angular/router for routing functionality
+- Routes array tells the Router which component to display based on the path
+- When using a routing module, replace <app-component> with <router-outlet>
+- routerLink is a directive that turns a user click into a router navigation; used with the <a> element in html
