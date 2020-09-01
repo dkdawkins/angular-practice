@@ -84,6 +84,7 @@
 - Generally injected into the constructor of the component that uses it
 - Generated services have the @Injectable decorator, marking them as a class that participates in dependency injection
 - Services must have a registered provider before participating in DI. The generate command registers a provider with the root injector by default, allowing the service to be injected into any class that asks for it
+- Injected service is normally private, but must be made public if it will be bound in a template
 
 # Observables
 - 'Observable' and 'of()' are imported from rxjs

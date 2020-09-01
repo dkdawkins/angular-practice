@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service'
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-heroes',
@@ -13,7 +14,7 @@ export class HeroesComponent implements OnInit {
   selectedHero: Hero;
 
   // Sets heroService to a singleton instance of HeroService
-  constructor(private heroService: HeroService) { }
+  constructor(private heroService: HeroService, private messageService: MessageService) { }
 
   // Best practice to call init functions here, rather than the constructor
   ngOnInit(): void {
@@ -29,5 +30,6 @@ export class HeroesComponent implements OnInit {
   // Assigns clicked hero from template to selectedHero
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
+    this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`);
   }
 }
