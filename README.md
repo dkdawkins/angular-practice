@@ -10,6 +10,9 @@
   - Adding '--flat' places the generated module into src/app instead of a separate folder
   - Adding '--module=app' registers the generated module in the imports of AppModule
 
+# Misc. JS/TS Notes
+- JS '+' operator converts a string to a number; useful for converting route parameters from strings to numbers
+
 # Debugging
 - In a browser, you can hit F12 or FN+F12 to view the dev tools
 
@@ -100,3 +103,8 @@
 - Routes array tells the Router which component to display based on the path
 - When using a routing module, replace <app-component> with <router-outlet>
 - routerLink is a directive that turns a user click into a router navigation; used with the <a> element in html
+- To have a second path redirect to another existing path, add in routes:
+  { path: '<secondpath>', redirectTo: '/<existingpath>', pathMatch: 'full' }
+- Adding a colon (:) to a path represents a placeholder for a property
+- Inject ActivatedRoute into a component that will be navigated to if you want to extract details from the route to said component (e.g. getting the ID of the hero to be displayed in the HeroDetailComponent)
+- Inject Location into a component that will be navigated to if you want to go back to the previous component that was navigated from (e.g. going back to the dashboard or hero list after going to the HeroDetailComponent)

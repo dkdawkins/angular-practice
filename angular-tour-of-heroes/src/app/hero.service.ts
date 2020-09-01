@@ -21,4 +21,15 @@ export class HeroService {
     // Returns an Observable<Hero[]> that emits a single value (the array)
     return of(HEROES);
   }
+
+  // Returns a single Hero observable
+  getHero(id: number): Observable<Hero> {
+
+    // TODO: send the message _after_ fetching the heroes
+    
+    this.messageService.add(`HeroService: fetched hero id=${id}`);
+
+    // Returns an Observable<Hero> that emits a single value (the mathcing hero)
+    return of(HEROES.find(hero => hero.id === id));
+  }
 }
