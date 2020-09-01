@@ -67,7 +67,7 @@
 # Pipes:
 - Activated with the pipe | operator in the component template
 - Useful for formatting display data
-- Can be used with Observables (see below) with '| async'
+- Can be used with Observables (see below) with '| async'; this essentially calls the subscribe method in the HTML instead of the Class
 
 # Modules:
 - Possess an @NgModule decorator for critical metadata
